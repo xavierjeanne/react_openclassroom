@@ -13,14 +13,14 @@ function ShoppingList({ cart, updateCart }) {
 	)
 
 	function addToCart(name, price) {
-		const currentPlantSaved = cart.find((plant) => plant.name === name)
-		if (currentPlantSaved) {
+		const currentPlantAdded = cart.find((plant) => plant.name === name)
+		if (currentPlantAdded) {
 			const cartFilteredCurrentPlant = cart.filter(
 				(plant) => plant.name !== name
 			)
 			updateCart([
 				...cartFilteredCurrentPlant,
-				{ name, price, amount: currentPlantSaved.amount + 1 }
+				{ name, price, amount: currentPlantAdded.amount + 1 }
 			])
 		} else {
 			updateCart([...cart, { name, price, amount: 1 }])
@@ -36,7 +36,7 @@ function ShoppingList({ cart, updateCart }) {
 			/>
 
 			<ul className='lmj-plant-list'>
-				{plantList.map(({ id, cover, name, water, light, price,category }) => 
+				{plantList.map(({ id, cover, name, water, light, price, category }) =>
 					!activeCategory || activeCategory === category ? (
 						<div key={id}>
 							<PlantItem
@@ -54,6 +54,5 @@ function ShoppingList({ cart, updateCart }) {
 		</div>
 	)
 }
-
 
 export default ShoppingList

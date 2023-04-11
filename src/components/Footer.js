@@ -13,6 +13,7 @@ function Footer() {
 			alert("Attention, il n'y a pas d'@, ceci n'est pas une adresse valide 😥")
 		}
 	}
+
 	return (
 		<footer className='lmj-footer'>
 			<div className='lmj-footer-elem'>
